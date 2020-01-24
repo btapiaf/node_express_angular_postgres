@@ -1,0 +1,76 @@
+<div class="container" >
+    <h1><span class="badge badge-secondary">{{ title }} </span></h1>       
+
+
+<div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Fecha-Hora</th>
+        <th scope="col">avances</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Cynthia Maza</td>
+        <td>27 de Julio del 2019</td>
+        <td><button> Agregar </button> <button > Detallar </button></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Boris Tapia</td>
+        <td>29 septiembre del 2019</td>
+        <td>  <button> Agregar </button> <button > Detallar </button></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Carla Guamanzara</td>
+        <td >21 de diciembre del 2019</td>
+        <td>  <button>Agregar </button>  <button> Detallar </button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+<button routerLink = "/about/agregar" > Agregar nuevo Avance </button>
+</div>
+
+<br>
+        <!-- Button to Open the Modal -->
+<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal">
+        Help
+      </button>
+      
+      <!-- The Modal -->
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Ayuda Solicitudes</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+                <ul class="list-group">
+                        <li class="list-group-item">1.	Ver el nombre y fecha del estudiante, dar clic en “Agregar”.</li>
+                        <li class="list-group-item">2.	Ingresar el detalle del avance en “Detallar Avance”.</li>
+                        <li class="list-group-item">3.	Si existe alguna observación ingresar en “Observaciones”.</li>
+                        <li class="list-group-item">4.	Para guardar el avance dar clic en “Enviar”.</li>
+                      </ul>
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+      
+</div>
+

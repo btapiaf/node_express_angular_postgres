@@ -1,0 +1,26 @@
+<div class="container">
+<h1> {{ nombre }}</h1>
+
+<div >
+
+    <table class="table" >
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+
+          </tr>
+        </thead>
+        <tbody *ngFor = "let estudiante of estu" >
+          
+          <tr>
+          <th scope="row">{{estudiante.id_estudiante}}</th>
+            <td>{{estudiante.usuario}}</td>
+          <td>{{estudiante.pass}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+</div>

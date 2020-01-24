@@ -1,0 +1,60 @@
+<div class="container">
+
+        <h1> Solicitudes </h1>
+
+        <form>
+                <label for="title"> Tipo de Solicitud</label>
+                <select name="soli" class="form-control" id="soli" required>
+                        
+                        <option *ngFor="let soli of solicitud" value = {{soli.name}}>{{soli.name}}</option>
+                        
+                </select>
+
+                <label for="title"> Destinatario </label>
+                <select name="dest" class="form-control" id="dest" required>
+                        
+                        <option *ngFor="let dest of destinatario solicitud" value = {{dest.name}}>{{dest.name}}</option>
+                        
+                </select>
+
+                <label for="title"> Contenido </label>
+                <input type="file" name="conte" class="form-control" id="conte" required/>
+                <br>
+                <button routerLink="/about" class="btn btn-success">enviar</button>
+
+                
+        </form>
+        <br>
+        <!-- Button to Open the Modal -->
+<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal">
+        Help
+      </button>
+      
+      <!-- The Modal -->
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Ayuda Solicitudes</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+                <ul class="list-group">
+                        <li class="list-group-item">1.	Seleccionar el tipo de solicitud.</li>
+                        <li class="list-group-item">2.	Seleccionar el destinatario.</li>
+                        <li class="list-group-item">3.	Para guardar hacer clic en Enviar.</li>
+                      </ul>
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+      
+   
+
+</div>

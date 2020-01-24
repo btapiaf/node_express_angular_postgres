@@ -1,0 +1,30 @@
+<div class="container">
+    <div>
+
+        <h2> Tabla de Entregables</h2>
+
+    </div>
+
+    <div>
+    <table class="table table-white" >
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">DIA</th>
+            <th scope="col">HORA</th>
+            <th scope="col">PORCENTAJE</th>
+            <th scope="col">DETALLE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let entre of entregable">
+            <th scope="row">{{entre.id_entregable}}</th>
+            <td>{{entre.dia}}</td>
+            <td>{{entre.hora}}</td>
+            <td>{{entre.porcentaje}} %</td>
+            <td>{{entre.descripcion}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

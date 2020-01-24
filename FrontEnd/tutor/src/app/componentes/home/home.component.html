@@ -1,0 +1,28 @@
+<div class="container">
+        <h1>Bienvenido Tutor {{ nombre }} </h1>
+
+        <div>
+                <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Tema</th>
+                            <th scope="col">Opciones</th>
+                          </tr>
+                        </thead>
+                        <tbody *ngFor= "let valores of datos">
+                          <tr>
+                          <th scope="row">{{ valores.id }}</th>
+                            <td>{{valores.nombre}}</td>
+                            <td>{{valores.apellido}}</td>
+                          <td>{{valores.tema}}</td>
+                            <td> <button routerLink="/horarios" class="btn btn-success" > Horarios </button> <td>
+                          </tr>
+                         
+                      </table>
+        </div> 
+
+</div>
+    
