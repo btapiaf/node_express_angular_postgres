@@ -2,25 +2,25 @@
 
         <h1> Solicitudes </h1>
 
-        <form>
+        <form >
                 <label for="title"> Tipo de Solicitud</label>
-                <select name="soli" class="form-control" id="soli" required>
+                <select  name="soli" class="form-control" id="soli" required>
                         
-                        <option *ngFor="let soli of solicitud" value = {{soli.name}}>{{soli.name}}</option>
+                        <option *ngFor="let soli of tipo"  value = {{soli.tipo_solicitud}} > {{soli.tipo_solicitud}} </option>
                         
                 </select>
 
                 <label for="title"> Destinatario </label>
-                <select name="dest" class="form-control" id="dest" required>
+                <select name="dest" class="form-control" id="dest">
                         
-                        <option *ngFor="let dest of destinatario solicitud" value = {{dest.name}}>{{dest.name}}</option>
+                        <option *ngFor="let soli of tipo" value = {{soli.destinatario}} >{{soli.destinatario}}</option>
                         
                 </select>
 
                 <label for="title"> Contenido </label>
                 <input type="file" name="conte" class="form-control" id="conte" required/>
                 <br>
-                <button routerLink="/about" class="btn btn-dark">enviar</button>
+                <button  class="btn btn-dark" (click) = guardar() >enviar</button>
 
                 
         </form>

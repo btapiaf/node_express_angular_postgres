@@ -1,5 +1,5 @@
 export interface Solicitudes {
-    soli?: string,
-    destinatario?: string,
-    contenido?: string
+    soli?: string;
+    destinatario?: string;
+    contenido?: string;
 }

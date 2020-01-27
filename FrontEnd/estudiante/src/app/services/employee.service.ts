@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import {Solicitudes } from '../models/employee';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,13 +13,16 @@ export class EmployeeService {
     return this.http.get(`${this.URL_API}/estudiante`);
   }
 
-  getEntregables(){
-    return this.http.get(`${this.URL_API}/entregables`)
+  getEntregables() {
+    return this.http.get(`${this.URL_API}/entregables`);
   }
 
-  postSolicitud() {
-    return this.http.post
+  getSolicitud() {
+    return this.http.get(`${this.URL_API}/registro`);
   }
 
+  postSolcitud(Solicitud: Solicitudes) {
+    return this.http.post(`${this.URL_API}/registro`, Solicitud);
 
+  }
 }

@@ -1,0 +1,68 @@
+<div class="container">
+
+    <div class="signup-form-container">
+    
+         <!-- form start -->
+         <form role="form" id="register-form" autocomplete="off">
+         
+         <div class="form-header">
+          <h3 class="form-title"> Ingreso de Entregable</h3>
+                      
+         <div class="pull-right">
+             <h3 class="form-title"><span class="glyphicon glyphicon-pencil"></span></h3>
+         </div>
+                      
+         </div>
+         
+         <div class="form-body">
+                      
+            <div class="form-group">
+                   <div class="input-group">
+                   <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                   <input name="name" type="text" class="form-control" placeholder="Dia" [(ngModel)]= "entregable.dia">
+                   </div>
+              </div>
+                        
+              <div class="form-group">
+                   <div class="input-group">
+                   <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
+                   <input name="email" type="text" class="form-control" placeholder="Hora" [(ngModel)]= "entregable.hora">
+                   </div> 
+                   <span class="help-block" id="error"></span>                     
+              </div>
+                        
+              <div class="row">
+                        
+                   <div class="form-group col-lg-6">
+                        <div class="input-group">
+                        <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                        <input name="porcentaje" id="porcentaje" type="text" class="form-control" placeholder="Porcentaje" [(ngModel)]= "entregable.porce">
+                        </div>  
+                        <span class="help-block" id="error"></span>                    
+                   </div>
+                            
+                   <div class="form-group col-lg-6">
+                        <div class="input-group">
+                        <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                        <textarea name="Descripcion" class="form-control" placeholder="descripcion" [(ngModel)]= "entregable.desc"> </textarea>
+                        </div>  
+                        <span class="help-block" id="error"></span>                    
+                   </div>
+                            
+             </div>
+                        
+                        
+            </div>
+            
+            <div class="form-footer">
+                 <button class="btn btn-info" (click)="saveEntregable()">
+                 <span class="glyphicon glyphicon-log-in" ></span> Guardar
+                 </button>
+            </div>
+
+
+            </form>
+            
+           </div>
+
+ </div>

@@ -55,7 +55,7 @@ const getEntregables = async (req, res) => {
 const getIDentrega = async(req,res) =>{
     try {
         const id = req.params.id;
-        const response = await poll.query('SELECT * FROM entregables where id_entregable = $1',[id]);
+        const response = await poll.query('SELECT * FROM entregables where id_estudiante = $1',[id]);
         res.json(response.rows);
         console.log('todo en orden');
                 
@@ -75,23 +75,61 @@ const getIDentrega = async(req,res) =>{
 
 const postEntregables = async (req, res) => {
 try {
-    const {id_en,id_tu,id_es,
+    const {id_tu,id_es,
     dia,hora,porce,desc} = req.body
-    const response = await poll.query('INSERT INTO entregables(id_entregable, id_tutor, id_estudiante, dia, hora, porcentaje, descripcion) values($1,$2,$3,$4,$5,$6,$7)',[id_en,id_tu,id_es,dia,hora,porce,desc]);
+    const response = await poll.query('INSERT INTO entregables(id_tutor, id_estudiante, dia, hora, porcentaje, descripcion,firma) values($1,$2,$3,$4,$5,$6,$7)',[id_tu,id_es,dia,hora,porce,desc,0]);
 
     res.json({
         body:{
-            user :{id_en,id_tu,id_es,dia,hora,porce,desc}
+            user :{id_tu,id_es,dia,hora,porce,desc}
         }
     });
 
     
 } catch (error) {
+
+    console.error(error)
     
 }
  
     
 }
+
+//###### PUT ENTREGABLE
+
+const updateEntregables = async (req,res) =>{
+
+    try {
+    const id = req.params.id;
+    const{id_tu,id_es,dia,hora,porce,desc,firma} = req.body;
+    const response = await poll.query('UPDATE entregables set  id_tutor=$1, id_estudiante=$2, dia=$3, hora=$4, porcentaje=$5, descripcion=$6,firma=$7  WHERE id_entregable = $8', [id_tu,id_es,dia,hora,porce,desc,0,id]);
+    return  res.json(response.rows);
+        
+    } catch (error) {
+
+        console.error(error)
+        
+    }
+    
+
+};
+
+const updateEntrFirma = async (req,res) =>{
+
+    try {
+    const id = req.params.id;
+    const{firma} = req.body;
+    const response = await poll.query('UPDATE entregables set firma=$1 WHERE id_entregable = $2', [firma,id]);
+    return res.send('firma actualizada')
+        
+    } catch (error) {
+
+        console.error(error)
+        
+    }
+    
+
+};
 
 // ########### ESTUDIANTE #############
 const getEstudiante = async (req, res) => {
@@ -237,4 +275,4 @@ const Posttutor = async (req, res) =>{
 
 module.exports = {getConsejo,Posttutor,getEntregables,getEstudiante,getIDentrega
 ,getIDregistro,getIngresos,getIngresos,getRsolicitud,getTutor,Postestudiante,getIDestudiante,postEntregables,
-PostSolici};
+PostSolici,updateEntregables,updateEntrFirma};

@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express.Router();
-const {Posttutor,getConsejo,getEntregables,getEstudiante,getIngresos,getRsolicitud,getTutor,getIDentrega,getIDregistro,Postestudiante,getIDestudiante,postEntregables,PostSolici} = require('../controllers/controladores');
+const {Posttutor,getConsejo,getEntregables,getEstudiante,getIngresos,getRsolicitud,getTutor,getIDentrega,getIDregistro,Postestudiante,getIDestudiante,postEntregables,PostSolici,updateEntregables,updateEntrFirma} = require('../controllers/controladores');
 
 
 //############
@@ -25,12 +25,15 @@ app.get('/estudiante/:id',getIDestudiante);
 //############
 // POST
 //############
-app.post('/tutor',Posttutor)
-app.post('/estudiante',Postestudiante)
-app.post('/entregables',postEntregables)
-app.post('/registro',PostSolici)
+app.post('/tutor',Posttutor);
+app.post('/estudiante',Postestudiante);
+app.post('/entregables',postEntregables);
+app.post('/registro',PostSolici);
 //############
 //PUT
-//############3
+//############
+
+app.put('/entregables/:id',updateEntregables);
+app.put('/firma/:id',updateEntrFirma);
 
 module.exports = app;

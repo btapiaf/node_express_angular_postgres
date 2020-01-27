@@ -9,12 +9,12 @@ import { AboutComponent } from './componentes/about/about.component';
 import { HorariosComponent } from './componentes/horarios/horarios.component';
 import { SolicitudesComponent } from './componentes/solicitudes/solicitudes.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { FormsModule } from '@angular/forms';
 import { AgregarComponent } from './componentes/about/agregar/agregar.component';
 import {ReactiveFormsModule} from '@angular/forms';
-
-
+import {TutorService} from './service/tutor.service';
+import {HttpClientModule} from '@angular/common/http';
+import { IngresarEntregableComponent } from './componentes/ingresar-entregable/ingresar-entregable.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +22,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     AboutComponent,
     HorariosComponent,
     SolicitudesComponent,
-    AgregarComponent
+    AgregarComponent,
+    IngresarEntregableComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -30,9 +31,12 @@ import {ReactiveFormsModule} from '@angular/forms';
     AppRoutingModule,
     MatFormFieldModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    TutorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

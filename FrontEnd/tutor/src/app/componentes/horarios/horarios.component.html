@@ -2,75 +2,42 @@
 <h1>Ingresar Horarios y Dias Disponibles</h1>
 
 <div>
-<form>
-</form>
 
 </div>
-<div>
 
-  <input type="text" name="nombredelacaja">
-  <button > presionamen </button>
-
-</div>
 <div>
 
     <table class="table" >
         <thead >
           <tr>
-            <th scope="col">Num</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Hora</th>
+            <th scope="col">#</th>
             <th scope="col">Dia</th>
+            <th scope="col">Hora</th>
+            <th scope="col">% del Avance</th>
+            <th class="col"> Descripcion</th>
+            <th scope="col">Firma</th>
           </tr>
         </thead> 
-        <tbody *ngFor= "let valores of datos">
-          <tr >
-            <th scope="row">{{valores.Id}}</th>
-            <td>{{valores.nombre}}</td>
-            <td>{{valores.hora}}</td>
-            <td>{{valores.dia}}</td>
-          
+        <tbody >
+          <tr *ngFor= "let entre of entregable ">
+          <th>{{entre.id_entregable}}</th >
+            <td>{{entre.dia}}</td>
+            <td>{{entre.hora}}</td>
+            <td>{{entre.porcentaje}}</td>
+            <td> {{entre.descripcion}}</td>
+            <td><button  type="button" class="btn btn-info btn-black" >Firmar</button> 
+              
+            <button class="btn btn-info btn-black" [routerLink] = "['/horarios/editar',entre.id_entregable]" > Editar </button></td>
           </tr>
           
         </tbody>
       </table>
-      <h3> Agregar nuevos horarios </h3>
-      <div class="agregar">
-            <form>
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Elegir nombre</label>
-                    <select class="form-control" id="exampleFormControlSelect1"  >
-                      <option>Cynthia Maza</option>
-                      <option>Boris Tapia</option>
-                      <option>Carla Guamanzara</option>
-                  </select>
-                  </div>
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">Hora</label>
-                      <input type = "text" class="form-control" id="exampleFormControlInput1" placeholder="18h52" >
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleFormControlSelect1">Dia</label>
-                      <select class="form-control" id="exampleFormControlSelect1"  >
-                        <option>Lunes</option>
-                        <option>Martes</option>
-                        <option>Miercoles</option>
-                        <option>Jueves</option>
-                        <option>Viernes</option>
-                      </select>
-                    </div>
-                    
-                  
-                    <button> Agregar </button>
-                    
-                  </form>
+
+      <div >
+
+        <button [routerLink]="['/horarios/ingresar',id2]" class="btn btn-dark" > añadir nuevo </button>
       </div>
-</div>
-<br>
-        <!-- Button to Open the Modal -->
-<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal">
-        Help
-      </button>
+    
       
       <!-- The Modal -->
       <div class="modal" id="myModal">
