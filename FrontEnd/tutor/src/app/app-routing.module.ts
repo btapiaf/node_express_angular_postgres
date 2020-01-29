@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'solicitudes', component: SolicitudesComponent},
   {path: 'about/agregar', component: AgregarComponent},
   {path: 'horarios/editar/:id', component: IngresarEntregableComponent},
-  {path: '**', pathMatch: 'full', redirectTo: 'home'}
+  {path: '**', pathMatch: 'full', redirectTo: 'index'}
 ];
 
 @NgModule({

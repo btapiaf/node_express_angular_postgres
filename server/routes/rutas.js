@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express.Router();
-const {Posttutor,getConsejo,getEntregables,getEstudiante,getIngresos,getRsolicitud,getTutor,getIDentrega,getIDregistro,Postestudiante,getIDestudiante,postEntregables,PostSolici,updateEntregables,updateEntrFirma} = require('../controllers/controladores');
+const {Posttutor,getConsejo,getEntregables,getEstudiante,getIngresos,getRsolicitud,getTutor,getIDentrega,getIDregistro,Postestudiante,getIDestudiante,postEntregables,PostSolici,updateEntregables,updateEntrFirma,getResolucion,PostResolucion,getID} = require('../controllers/controladores');
 
 
 //############
@@ -12,6 +12,7 @@ app.get('/estudiante', getEstudiante);
 app.get('/ingreso', getIngresos);
 app.get('/registro',getRsolicitud);
 app.get('/tutor',getTutor);
+app.get('/resolucion', getResolucion);
 
 //############
 //GET FOR ID
@@ -20,6 +21,7 @@ app.get('/tutor',getTutor);
 app.get('/entregables/:id',getIDentrega);
 app.get('/registro/:id',getIDregistro);
 app.get('/estudiante/:id',getIDestudiante);
+app.get('/datos/:id',getID)
 
 
 //############
@@ -29,6 +31,7 @@ app.post('/tutor',Posttutor);
 app.post('/estudiante',Postestudiante);
 app.post('/entregables',postEntregables);
 app.post('/registro',PostSolici);
+app.post('/resolucion', PostResolucion)
 //############
 //PUT
 //############

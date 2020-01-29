@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SolicitudService } from 'src/app/services/solicitud.service';
+import {Datos} from '../../models/datitos';
 
 @Component({
   selector: 'app-solicitud',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SolicitudComponent implements OnInit {
 
-  constructor() { }
+  estado = [
+    {Nombre : 'Pendiente'},
+    {Nombre : 'Rechazado'},
+    {Nombre : 'Aprobado'}];
+
+  mostrar: any = [ ];
+
+
+  constructor(private solici: SolicitudService ) { }
 
   ngOnInit() {
+
+    this.solici.getSolicitud().subscribe(
+      res => {
+        this.mostrar = res;
+      },
+      err => console.error(err)
+    );
+
   }
 
+  alFin() {
+   alert('Formato cambiado');
+
+  }
 }

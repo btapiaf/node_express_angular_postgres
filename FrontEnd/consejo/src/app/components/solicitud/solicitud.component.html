@@ -5,22 +5,25 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Estudiante</th>
         <th scope="col">Tipo de Solicitud</th>
         <th scope="col">Destinatario</th>
         <th scope="col">Anexo</th>
-        <th scope="col"> Numero de Resolucion</th>
+        <th> Contenido </th>
+        <th> Estado </th>
+        <th> </th>
+
       </tr>
     </thead>
-    <tbody>
+    <tbody *ngFor = 'let mostr of mostrar'>
       <tr>
-        <th scope="row">1</th>
+        <th scope="row">{{mostr.id_solicitud}}</th>
         <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <td>{{mostr.tipo_solicitud}}</td>
+        <td>{{mostr.destinatario}}</td>
+        <td>{{mostr.contenido}}</td>
+      <td ><select> <option  *ngFor = "let soli of estado"> {{soli.Nombre}} </option > </select> </td>
+      <td> <button  class="btn btn-success" (click) = "alFin()"> presioname </button></td>
       </tr>
-
+e
     </tbody>
   </table>

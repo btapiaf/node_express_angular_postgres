@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {EntregableDatos} from '../models/Entregables';
-import {Firma} from '../models/firma';
+import {Solicitud} from '../models/solicitud';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -32,13 +32,17 @@ export class TutorService {
     return this.http.put(`${this.URL_API}/entregables/${id}`, updateEntre);
   }
 
-  updateFirma(id: string|number, firmas: boolean) {
+  updateFirma(id: number, updateEntre: string) {
 
-    return this.http.put(`${this.URL_API}/firma/${id}`, firmas);
+    return this.http.put(`${this.URL_API}/firma/${id}`, updateEntre);
   }
 
   getEstudiantes() {
     return this.http.get(`${this.URL_API}/estudiante`);
+  }
+
+  postSolicitud(soli: Solicitud) {
+    return this.http.post(`${this.URL_API}/registro`, soli);
   }
 }
 

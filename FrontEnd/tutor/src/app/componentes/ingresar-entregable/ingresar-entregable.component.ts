@@ -11,9 +11,6 @@ import {Router, ActivatedRoute} from '@angular/router';
 export class IngresarEntregableComponent implements OnInit {
 
 
-
-  edit = false;
-
   constructor(private entre: TutorService, private router: Router, private activeRoute: ActivatedRoute) { }
 
   params = this.activeRoute.snapshot.params;
@@ -28,14 +25,14 @@ export class IngresarEntregableComponent implements OnInit {
   };
 
   saveEntregable() {
-
     console.log(this.entregable);
     this.entre.saveEntregable(this.entregable).subscribe(
-      res =>{
+      res => {
+        this.router.navigate([`/index/${+this.params.id}`]);
         console.log(res);
       },
       erro => console.error(erro)
-    )
+    );
   }
 
   ngOnInit() {

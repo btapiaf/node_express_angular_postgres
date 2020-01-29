@@ -1,3 +1,3 @@
 export interface Firma {
-    firma?: boolean;
+    firmando?: number;
 }

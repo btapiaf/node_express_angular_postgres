@@ -25,4 +25,8 @@ export class EmployeeService {
     return this.http.post(`${this.URL_API}/registro`, Solicitud);
 
   }
+
+  getEntregablesI(id: string) {
+    return this.http.get(`${this.URL_API}/entregables/${id}`);
+ }
 }

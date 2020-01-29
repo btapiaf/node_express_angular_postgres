@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {EmployeeService} from '../../services/employee.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-entregables',
@@ -8,10 +9,14 @@ import {EmployeeService} from '../../services/employee.service';
 })
 export class EntregablesComponent implements OnInit {
   entregable: any = [];
-  constructor(private datos: EmployeeService ) { }
+  id = this.active.snapshot.params;
+  acu = 0;
+  constructor(private datos: EmployeeService, private active: ActivatedRoute ) { }
 
   ngOnInit() {
-    this.datos.getEntregables().subscribe(
+
+    const params = this.id;
+    this.datos.getEntregablesI(params.id).subscribe(
       res => {
         this.entregable = res;
       },

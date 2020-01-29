@@ -1,5 +1,5 @@
 <div class="container">
-<h1>Ingresar Horarios y Dias Disponibles</h1>
+<h1>Registro de Tutorias</h1>
 
 <div>
 
@@ -25,9 +25,7 @@
             <td>{{entre.hora}}</td>
             <td>{{entre.porcentaje}}</td>
             <td> {{entre.descripcion}}</td>
-            <td><button  type="button" class="btn btn-info btn-black" >Firmar</button> 
-              
-            <button class="btn btn-info btn-black" [routerLink] = "['/horarios/editar',entre.id_entregable]" > Editar </button></td>
+            <td><button  type="button" class="btn btn-info btn-black" *ngIf = "entre.firma" (click) = "firmar(entre.id_entregable,true)" [routerLink]="['/index',id2]">Firmar </button> <label *ngIf ="!entre.firma"> FIRMADO</label> </td>
           </tr>
           
         </tbody>

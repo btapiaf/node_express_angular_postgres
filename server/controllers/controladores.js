@@ -30,16 +30,6 @@ const getEntregables = async (req, res) => {
     try {
         const response = await poll.query('SELECT * FROM entregables ');
 
-        let hola = response.rows;
-        var palabra = JSON.stringify(hola)
-        console.log(palabra);
-        fs.appendFile('documento.json',palabra,(error)=>{
-            if(error){
-                throw error;
-            }
-            console.log('archivo guardado')
-        });
-
         console.log("Excelente")
         return res.json(response.rows);
         
@@ -56,6 +46,43 @@ const getIDentrega = async(req,res) =>{
     try {
         const id = req.params.id;
         const response = await poll.query('SELECT * FROM entregables where id_estudiante = $1',[id]);
+
+        let datos = response.rows;
+        var palabra = JSON.stringify(datos)
+        console.log(palabra);
+        fs.appendFile('documento.json',palabra,(error)=>{
+            if(error){
+                throw error;
+            }
+            console.log('archivo guardado')
+        });
+        res.json(response.rows);
+        console.log('todo en orden');
+                
+    } catch (err) {
+        
+        console.log("error :(");
+        
+        console.error(err);
+        
+    }
+}
+
+
+const getID = async(req,res) =>{
+    try {
+        const id = req.params.id;
+        const response = await poll.query('SELECT id_tutor, id_estudiante FROM entregables where id_estudiante = $1',[id]);
+
+        let datos = response.rows;
+        var palabra = JSON.stringify(datos)
+        console.log(palabra);
+        fs.appendFile('valores.json',palabra,(error)=>{
+            if(error){
+                throw error;
+            }
+            console.log('archivo guardado')
+        });
         res.json(response.rows);
         console.log('todo en orden');
                 
@@ -118,10 +145,11 @@ const updateEntrFirma = async (req,res) =>{
 
     try {
     const id = req.params.id;
-    const{firma} = req.body;
-    const response = await poll.query('UPDATE entregables set firma=$1 WHERE id_entregable = $2', [firma,id]);
-    return res.send('firma actualizada')
-        
+    const {firma} = req.body;
+    const response = await poll.query('UPDATE entregables SET firma = $1 WHERE id_entregable = $2', [firma,id]);
+     res.json({
+         firma
+     });
     } catch (error) {
 
         console.error(error)
@@ -130,6 +158,39 @@ const updateEntrFirma = async (req,res) =>{
     
 
 };
+
+const getResolucion = async (req,res)=> {
+    
+    try {
+        const response = await poll.query('SELECT * FROM resolucion');
+        return res.json(response.rows);
+        
+    } catch (e) {
+
+        return console.log('error en la consulta')
+        
+    }
+};
+
+const PostResolucion = async (req,res) => {
+   try {
+
+    const {estado} = req.body;
+    const response = await poll.query('INSERT INTO resolucion (id_consejo,estado) values (1,$1)',[estado]);
+
+   res.json({
+       estado
+   });
+
+
+       
+   } catch (error) {
+
+    return console.log(error);
+   } 
+   
+
+}
 
 // ########### ESTUDIANTE #############
 const getEstudiante = async (req, res) => {
@@ -275,4 +336,4 @@ const Posttutor = async (req, res) =>{
 
 module.exports = {getConsejo,Posttutor,getEntregables,getEstudiante,getIDentrega
 ,getIDregistro,getIngresos,getIngresos,getRsolicitud,getTutor,Postestudiante,getIDestudiante,postEntregables,
-PostSolici,updateEntregables,updateEntrFirma};
+PostSolici,updateEntregables,updateEntrFirma,getResolucion,PostResolucion,getID};

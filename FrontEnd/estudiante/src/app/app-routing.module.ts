@@ -10,7 +10,8 @@ const routes: Routes = [
   {path: 'index', component: IndexComponent},
   {path: 'entregable', component: EntregablesComponent},
   {path: 'solicitudes', component: SolicitudesComponent},
-  {path: 'index', pathMatch: 'full', redirectTo: 'index'}
+  {path: 'entregable/:id', component : EntregablesComponent},
+  {path: '**', pathMatch: 'full', redirectTo: 'index'}
 ];
 
 @NgModule({

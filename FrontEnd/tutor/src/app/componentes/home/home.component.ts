@@ -8,7 +8,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  nombre = 'Ingeniero Hurtado';
+  nombre = '';
   datos: any = [];
   constructor(private tutor: TutorService, private actuvatedRoute: ActivatedRoute) { }
 

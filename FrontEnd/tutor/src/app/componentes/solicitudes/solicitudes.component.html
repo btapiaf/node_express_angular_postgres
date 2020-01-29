@@ -4,23 +4,23 @@
 
         <form>
                 <label for="title"> Tipo de Solicitud</label>
-                <select name="soli" class="form-control" id="soli" required>
+                <select name="soli" class="form-control" id="soli" [(ngModel)]="soli.tipo">
                         
-                        <option *ngFor="let soli of solicitud" value = {{soli.name}}>{{soli.name}}</option>
+                        <option *ngFor="let soli2 of solicitud" value = {{soli2.name}}>{{soli2.name}}</option>
                         
                 </select>
 
                 <label for="title"> Destinatario </label>
-                <select name="dest" class="form-control" id="dest" required>
+                <select required name="dest" class="form-control" id="dest" [(ngModel)]="soli.desti">
                         
-                        <option *ngFor="let dest of destinatario solicitud" value = {{dest.name}}>{{dest.name}}</option>
+                        <option *ngFor="let dest of destinatario" value = {{dest.name}}>{{dest.name}}</option>
                         
                 </select>
 
                 <label for="title"> Contenido </label>
-                <input type="file" name="conte" class="form-control" id="conte" required/>
+                <input ngModel required type="file" name="conte" class="form-control" id="conte" required [(ngModel)]="soli.cont">
                 <br>
-                <button routerLink="/about" class="btn btn-success">enviar</button>
+                <button class="btn btn-success" (click) = "saveSoli()"> enviar </button>
 
                 
         </form>

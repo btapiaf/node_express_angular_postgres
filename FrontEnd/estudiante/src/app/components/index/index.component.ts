@@ -13,13 +13,7 @@ export class IndexComponent implements OnInit {
   estu: any = [];
 
   ngOnInit() {
-    this.datos.getEstudiante().subscribe(
-      res => {
-        this.estu = res;
-        console.log(res);
-      },
-      err => console.error(err)
-      );
+   
 
   }
 
